@@ -1,1 +1,4 @@
 /flymd.*
+*/out
+*/target
+*/Cargo.lock
