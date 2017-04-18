@@ -4,6 +4,11 @@ GBA Games Dev
 # Setup
 
 
+## Install DevTools
+```shell
+perl scripts/devkit_install.pl
+```
+
 ## Install Rust
 ```shell
 curl https://sh.rustup.rs -sSf | sh
