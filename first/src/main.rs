@@ -15,9 +15,13 @@ use gba::gfx::Color;
 #[no_mangle]
 pub extern "C" fn main(_: i32, _: *const *const i8) -> i32 {
     let mut m = gfx::Mode3::new();
-    m.dot(120, 80, Color::rgb15(31, 0, 0));
-    m.dot(136, 80, Color::rgb15(0, 31, 0));
-    m.dot(120, 96, Color::rgb15(0, 0, 31));
+    for x in 0..240 {
+        m.dot(x, 80, Color::rgb15(31, 0, 0));
+        m.dot(x, 20, Color::rgb15(31, 0, 0));
+        m.dot(x, 83, Color::rgb15(0, 31, 0));
+        m.dot(x, 96, Color::rgb15(0, 0, 31));
+
+    }
 
     loop{}
 }
