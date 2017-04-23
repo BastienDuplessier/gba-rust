@@ -12,7 +12,7 @@ xargo-build:
 	xargo build --target=gba --release
 
 objcopy:
-	arm-none-eabi-objcopy -O binary target/gba/release/first out/game.gba
+	arm-none-eabi-objcopy -O binary target/gba/release/game out/game.gba
 
 gba-fix:
 	gbafix out/game.gba

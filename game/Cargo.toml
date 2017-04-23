@@ -1,6 +1,6 @@
 [package]
 
-name = "first"
+name = "game"
 version = "0.0.1"
 authors = ["Bastien Duplessier"]
 
