@@ -26,7 +26,7 @@ pub extern "C" fn main(_: i32, _: *const *const i8) -> i32 {
     for x in 0..239 {
         let color = colors[x / 10 % 8];
         for y in 0..159 {
-            gfx::Screen::fill_dot(x as i32, y as i32, color);
+            gfx::Screen::draw_dot(x as i32, y as i32, color);
         }
     }
 
