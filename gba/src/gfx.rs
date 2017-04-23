@@ -45,13 +45,22 @@ impl Screen {
     pub const HEIGHT : usize = 160;
     pub const SIZE : usize = Self::WIDTH * Self::HEIGHT;
 
-    pub fn draw_dot(x: i32, y: i32, color: Color) {
-        let buff : &mut [u16] = unsafe {
+    pub fn screen_buffer<'a>() -> &'a mut [u16] {
+        unsafe {
             slice::from_raw_parts_mut(PTR_SCREEN as *mut u16, Self::SIZE)
-        };
+        }
+    }
 
+    pub fn draw_dot(x: i32, y: i32, color: Color) {
+        let buff = Self::screen_buffer();
         buff[(x+y*Self::WIDTH as i32) as usize] = color.0;
     }
 
-
+    pub fn draw_rect(left: i32, top: i32, width: i32, height: i32, color: Color) {
+        for y in 1..height {
+            for x in 1..width {
+                Self::draw_dot(x + left, y + top, color);
+            }
+        }
+    }
 }
