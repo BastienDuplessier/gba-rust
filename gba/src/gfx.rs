@@ -29,10 +29,6 @@ impl Color {
 pub struct Mode3;
 
 impl Mode3 {
-    pub const WIDTH : usize = 240;
-    pub const HEIGHT : usize = 160;
-    pub const SIZE : usize = Self::WIDTH * Self::HEIGHT;
-
     /// Calling this invalidates all other modes and enters Mode3.
     pub fn activate () -> Self {
         unsafe {
@@ -40,6 +36,14 @@ impl Mode3 {
         }
         Mode3
     }
+}
+
+pub struct Screen;
+
+impl Screen {
+    pub const WIDTH : usize = 240;
+    pub const HEIGHT : usize = 160;
+    pub const SIZE : usize = Self::WIDTH * Self::HEIGHT;
 
     pub fn fill_dot(x: i32, y: i32, color: Color) {
         let buff : &mut [u16] = unsafe {
@@ -48,5 +52,4 @@ impl Mode3 {
 
         buff[(x+y*Self::WIDTH as i32) as usize] = color.0;
     }
-
 }
